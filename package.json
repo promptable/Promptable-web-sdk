@@ -1,0 +1,49 @@
+{
+  "name": "typescript-npm-package",
+  "version": "1.0.0",
+  "description": "TypeScript library npm package boilerplate",
+  "author": "Jason Sturges <jason@jsonsturges.com> (https://jasonsturges.com)",
+  "homepage": "https://github.com/jasonsturges/typescript-npm-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonsturges/typescript-npm-package"
+  },
+  "license": "ISC",
+  "keywords": [
+    "typescript",
+    "npm",
+    "package",
+    "boilerplate"
+  ],
+  "main": "dist/cjs/typescript-npm-package.js",
+  "module": "dist/esm/typescript-npm-package.js",
+  "browser": "dist/browser/typescript-npm-package.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "prebuild:types": "rimraf ./build",
+    "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
+    "predocs": "rimraf ./docs",
+    "docs": "typedoc src --out docs",
+    "clean": "rimraf ./build ./dist ./docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.19.4",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "eslint": "^8.8.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.66.1",
+    "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
+    "typedoc": "^0.22.11",
+    "typescript": "^4.5.5"
+  }
+}
