@@ -1,23 +1,30 @@
 {
-  "name": "typescript-npm-package",
-  "version": "1.0.0",
-  "description": "TypeScript library npm package boilerplate",
-  "author": "Jason Sturges <jason@jsonsturges.com> (https://jasonsturges.com)",
-  "homepage": "https://github.com/jasonsturges/typescript-npm-package",
+  "name": "promptable.js",
+  "version": "0.0.1",
+  "description": "Compose LLM Apps in Typescript",
+  "author": "Promptable.ai",
+  "homepage": "https://github.com/promptable/Promptable.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasonsturges/typescript-npm-package"
+    "url": "https://github.com/promptable/Promptable.js"
   },
   "license": "ISC",
   "keywords": [
     "typescript",
     "npm",
     "package",
-    "boilerplate"
+    "boilerplate",
+    "LLMs",
+    "langchain",
+    "GPT",
+    "ai",
+    "library",
+    "composability",
+    "chaining"
   ],
-  "main": "dist/cjs/typescript-npm-package.js",
-  "module": "dist/esm/typescript-npm-package.js",
-  "browser": "dist/browser/typescript-npm-package.js",
+  "main": "dist/cjs/Promptable.js",
+  "module": "dist/esm/Promptable.js",
+  "browser": "dist/browser/Promptable.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
