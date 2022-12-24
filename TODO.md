@@ -2,9 +2,8 @@
 
 Priority
 
-1. Generate Promptable.ai server client from API + Models
-2. Expose basic api in this library (get prompt, run completions/streaming)
-3. Create chain and runner interface
+3. Expose basic api in this library (get prompt, run completions/streaming)
+4. Create chain and runner interface
 
 Later
 
