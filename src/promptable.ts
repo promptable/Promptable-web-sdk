@@ -1,13 +1,25 @@
 import axios from "axios";
 
-export interface Prompt {
+export interface ModelConfig {
+  provider: string;
+  model: string;
+  temperature: number;
+  stop: string[] | null;
+  max_tokens: number;
+}
+export interface PromptDeployment {
   id: string;
   name: string;
+  isActive: boolean;
   text: string;
-  inputs?: { name: string; value: string }[];
+  config: ModelConfig;
+  inputs: { name: string; value: string }[] | null;
+  createdAt: Date;
+  updatedAt: Date;
+  promptId: string;
 }
 
-interface GetActiveDeploymentArgs {
+export interface GetActiveDeploymentArgs {
   promptId: string;
 }
 
@@ -17,10 +29,12 @@ const getActiveDeployment = async ({ promptId }: GetActiveDeploymentArgs) => {
       promptId
     )}/deployment/active`
   );
+
+  return data as PromptDeployment;
 };
 
 const injectVariables = (
-  prompt: Prompt,
+  prompt: PromptDeployment,
   variablesMap: { [key: string]: string }
 ) => {
   return prompt.inputs?.reduce((acc, input) => {
@@ -33,4 +47,4 @@ const injectVariables = (
   }, prompt.text);
 };
 
-export { getActiveDeployment };
+export { getActiveDeployment, injectVariables };

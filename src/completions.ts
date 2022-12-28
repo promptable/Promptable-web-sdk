@@ -5,7 +5,7 @@ import {
 import axios from "axios";
 import { unescapeStopTokens } from "./utils";
 
-interface CompletionRequest {
+export interface CompletionRequest {
   model: string;
   prompt: string;
   max_tokens: number;
@@ -13,7 +13,7 @@ interface CompletionRequest {
   stop: string | string[] | null;
 }
 
-interface StreamCompletionArgs {
+export interface StreamCompletionArgs {
   req: CompletionRequest; // openai req
   apiKey: string;
   onMessage: (payload: any) => void;
@@ -21,7 +21,7 @@ interface StreamCompletionArgs {
   onError?: (err: any) => void;
 }
 
-interface RunCompletionArgs {
+export interface RunCompletionArgs {
   req: CompletionRequest; // openai req
   apiKey: string;
 }
@@ -41,6 +41,10 @@ export const runCompletion = async ({ req, apiKey }: RunCompletionArgs) => {
         ...req,
         prompt: undefined,
       },
+    },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
     },
   });
 
